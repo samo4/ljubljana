@@ -1,0 +1,13 @@
+{
+    "dependencies": {
+        "netlify-lambda": "^1.6.0"
+    },
+    "scripts": {
+        "clean": "rm -rf functions-build && mkdir functions-build",
+        "zip": "cd functions/proxy && npm install && zip -r proxy.zip *",
+        "postzip": "mv functions/proxy/proxy.zip functions-build",
+        "prebuild": "npm run clean && npm run zip",
+        "start": "npm run prebuild && netlify dev",
+        "postinstall": "netlify-lambda install"
+    }
+}
