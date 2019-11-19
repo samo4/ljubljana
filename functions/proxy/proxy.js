@@ -1,8 +1,18 @@
 "use strict";
 
-//import fetch from "node-fetch";
-const fetch = require("node-fetch");
+const fetch = require("node-fetch")
 
 exports.handler = async ( event , context ) => { 
-  return { statusCode : 200 , body : " We are now split testing! " + process.version }
+
+  try {
+    const city = 'Ljubljana'
+    const key = '62e6dd5ec121aa6bf1873e3ce4221175'
+    const url = `http://api.weatherstack.com/current?access_key=${key}&query=${city}`
+    const response = await fetch(url)
+    const weather = await response.json()
+    const t = weather.current.temperature
+    return { statusCode : 200 , body: process.version + ' ' + t + "C" }  
+  } catch (e) {
+    return { statusCode : 500 , body: e }  
+  }
 }
