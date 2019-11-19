@@ -7,7 +7,7 @@
         "zip": "cd functions/proxy && npm install && zip -r proxy.zip *",
         "postzip": "mv functions/proxy/proxy.zip functions-build",
         "build": "npm run clean && npm run zip",
-        "start": "npm run prebuild && netlify dev",
+        "start": "npm run build && netlify dev",
         "postinstall": "netlify-lambda install"
     }
 }
