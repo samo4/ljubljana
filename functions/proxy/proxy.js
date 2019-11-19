@@ -10,7 +10,7 @@ exports.handler = async ( event , context ) => {
     const url = `http://api.weatherstack.com/current?access_key=${key}&query=${city}`
     const response = await fetch(url)
     const weather = await response.json()
-    return { statusCode : 200 , body: weather }  
+    return { statusCode : 200 , body: JSON.stringify(weather) }  
   } catch (e) {
     return { statusCode : 500 , body: e }  
   }
