@@ -1,0 +1,29 @@
+
+
+<marquee direction="down" width="320" height="320" behavior="alternate">
+  <marquee behavior="alternate" id="weather">
+    loading
+  </marquee>
+  <marquee>
+    <img  id="weather-icon" />
+  </marquee>
+</marquee>
+
+<script>
+	let city = 'Ljubljana'
+	let key = '62e6dd5ec121aa6bf1873e3ce4221175'
+	document.addEventListener("DOMContentLoaded", async () => { 
+	let wEl = document.getElementById("weather")
+	let wimgEl = document.getElementById("weather-icon")
+	let url = `http://api.weatherstack.com/current?access_key=${key}&query=${city}`
+	let response = await fetch(url)
+	let weather = await response.json()
+	let t = weather.current.temperature
+	
+	wEl.innerHTML = `${city},  ${t}`
+	
+	let img = weather.current.weather_icons[0]
+	wimgEl.src = img
+})
+
+</script>
