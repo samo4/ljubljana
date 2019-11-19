@@ -15,12 +15,11 @@
 </marquee>
 
 <script>
-	let city = 'Ljubljana'
-	let key = '62e6dd5ec121aa6bf1873e3ce4221175'
+	
 	document.addEventListener("DOMContentLoaded", async () => { 
 	let wEl = document.getElementById("weather")
 	let wimgEl = document.getElementById("weather-icon")
-	let url = `https://api.weatherstack.com/current?access_key=${key}&query=${city}`
+	let url = `https://ljubljana.netlify.com/.netlify/functions/proxy`
 	let response = await fetch(url)
 	let weather = await response.json()
 	let t = weather.current.temperature
