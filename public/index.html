@@ -23,7 +23,7 @@
 	let response = await fetch(url)
 	let weather = await response.json()
 	let t = weather.current.temperature
-	
+	let city = weather.request.query
 	wEl.innerHTML = `${city},  ${t}`
 	
 	let img = weather.current.weather_icons[0]
