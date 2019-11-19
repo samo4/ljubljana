@@ -15,7 +15,7 @@
 	document.addEventListener("DOMContentLoaded", async () => { 
 	let wEl = document.getElementById("weather")
 	let wimgEl = document.getElementById("weather-icon")
-	let url = `http://api.weatherstack.com/current?access_key=${key}&query=${city}`
+	let url = `https://api.weatherstack.com/current?access_key=${key}&query=${city}`
 	let response = await fetch(url)
 	let weather = await response.json()
 	let t = weather.current.temperature
