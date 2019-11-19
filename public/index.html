@@ -24,7 +24,7 @@
 	let weather = await response.json()
 	let t = weather.current.temperature
 	let city = weather.request.query
-	wEl.innerHTML = `${city},  ${t}`
+	wEl.innerHTML = `${city} ${t}&#8451;`
 	
 	let img = weather.current.weather_icons[0]
 	wimgEl.src = img
