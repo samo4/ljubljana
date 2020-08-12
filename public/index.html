@@ -15,17 +15,17 @@
 </marquee>
 
 <script>
-	
-	document.addEventListener("DOMContentLoaded", async () => { 
+
+	document.addEventListener("DOMContentLoaded", async () => {
 	let wEl = document.getElementById("weather")
 	let wimgEl = document.getElementById("weather-icon")
-	let url = `https://ljubljana.netlify.com/.netlify/functions/proxy`
+	let url = `https://ljubljana.netlify.app/.netlify/functions/proxy`
 	let response = await fetch(url)
 	let weather = await response.json()
 	let t = weather.current.temperature
 	let city = weather.request.query
 	wEl.innerHTML = `${city} ${t}&#8451;`
-	
+
 	let img = weather.current.weather_icons[0]
 	wimgEl.src = img
 })
